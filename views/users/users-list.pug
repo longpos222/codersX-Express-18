@@ -1,0 +1,19 @@
+extends ../layouts/common.pug
+block content
+  
+  h3 User list:
+  ul
+    each user in usersList
+      li
+        span= user.name
+        span &nbsp;
+        span &nbsp;
+        span= user.phone
+        span &nbsp;
+        span &nbsp;
+        a(href='/users/update-name/' + user.id) Update name
+        span &nbsp;
+        span &nbsp;
+        a(href='/users/delete/' + user.id) Delete this user
+      br
+  a(href="/users/add") Add more user
