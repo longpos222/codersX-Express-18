@@ -1,0 +1,15 @@
+extends ../layouts/common.pug
+block content
+  h3 Books list:
+  ul
+    each book in booksList
+      li
+        span= book.title
+        span &nbsp;
+        span &nbsp;
+        a(href='/books/update-title/' + book.id) Update title
+        span &nbsp;
+        span &nbsp;
+        a(href='/books/delete/' + book.id) Delete this book
+      br
+  a(href="/books/add") Add more book

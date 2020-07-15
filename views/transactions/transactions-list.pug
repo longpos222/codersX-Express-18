@@ -1,0 +1,25 @@
+extends ../layouts/common.pug
+block content
+ 
+  h3 Transactions list:
+  if errors
+    each error in errors
+       alert.alert-danger= error 
+  
+  table(class="table")
+    thead
+      tr
+        th(scope="col") User name
+        th(scope="col") tranxID
+        th(scope="col") Book title
+        th(scope="col") Action
+    tbody
+      each tranx in transactionsList
+        tr
+          th=tranx ? tranx.userName : "Invalid user"
+          th=tranx ? tranx.id : "Invalid user"
+          th=tranx ? tranx.bookTitle : "Invalid book"
+          th
+            .group-btn
+            a.btn.btn-primary(href=`/transactions/#{tranx.id}/complete`) Complete
+  a.btn.btn-secondary(href="/transactions/create") Add more transaction  
